@@ -1,14 +1,8 @@
-import fastify from "fastify";
+import { createServer } from "./createServer.js";
 
-const server = fastify({
-  logger: {
-    transport: {
-      target: "pino-pretty",
-    },
-  },
-});
+const server = createServer();
 
-console.log("Hello World");
+
 async function startServer() {
   try {
     server.listen({ port: 7000, host: "::1" });
